@@ -15,11 +15,25 @@ struct Args {
     paths: Vec<String>,
 
     /// Name
-    #[arg(short = 'n', long = "name", value_name = "NAME", value_parser(Regex::new), action(ArgAction::Append), num_args(0..))]
+    #[arg(
+       short = 'n',
+       long = "name",
+       value_name = "NAME",
+       value_parser(Regex::new),
+       action(ArgAction::Append),
+       num_args(0..)
+    )]
     names: Vec<Regex>,
 
     /// Entry type
-    #[arg(short = 't', long = "type", value_name = "TYPE", value_parser(clap::value_parser!(EntryType)), action(ArgAction::Append), num_args(0..))]
+    #[arg(
+       short = 't',
+       long = "type",
+       value_name = "TYPE",
+       value_parser(clap::value_parser!(EntryType)),
+       action(ArgAction::Append),
+       num_args(0..)
+    )]
     entry_types: Vec<EntryType>,
 }
 
