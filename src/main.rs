@@ -14,11 +14,11 @@ struct Args {
     paths: Vec<String>,
 
     /// Name
-    #[arg(short, long, value_name = "<NAME>")]
+    #[arg(short = 'n', long = "name", value_name = "<NAME>")]
     names: Vec<Regex>,
 
     /// Entry type
-    #[arg(short, long, value_name = "<TYPE>")]
+    #[arg(short = 't', long = "type", value_name = "<TYPE>")]
     entry_types: Vec<EntryType>,
 }
 
@@ -44,5 +44,6 @@ impl ValueEnum for EntryType {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let args = Args::parse();
+    println!("{:?}", args);
 }
